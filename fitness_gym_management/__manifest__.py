@@ -18,8 +18,8 @@ A comprehensive module for managing gym operations including:
 - PDF reports for members, workout plans, and diet schedules
 - Email notifications for membership renewal
     """,
-    'author': 'Your Company',
-    'website': 'https://www.yourcompany.com',
+     'author': 'Abdulkrim Osman (+966562984106 , +966553368212)',
+    'website': 'https://leapai.ai/en/',
     'images': ['static/description/banner.png'],
     'depends': ['base', 'mail', 'account'],
     'assets': {
