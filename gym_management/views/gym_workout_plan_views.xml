@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gym_workout_plan_tree" model="ir.ui.view">
+        <field name="name">gym.workout.plan.tree</field>
+        <field name="model">gym.workout.plan</field>
+        <field name="arch" type="xml">
+            <list string="Workout Plans" decoration-success="state == 'active'" decoration-muted="state == 'completed'">
+                <field name="name"/>
+                <field name="member_id"/>
+                <field name="trainer_id"/>
+                <field name="category_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="total_calories"/>
+                <field name="state" widget="badge" decoration-success="state == 'active'" decoration-warning="state == 'draft'" decoration-muted="state == 'completed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_workout_plan_form" model="ir.ui.view">
+        <field name="name">gym.workout.plan.form</field>
+        <field name="model">gym.workout.plan</field>
+        <field name="arch" type="xml">
+            <form string="Workout Plan">
+                <header>
+                    <button
+                        name="action_activate"
+                        string="Activate"
+                        type="object"
+                        class="btn-primary"
+                        invisible="state != 'draft'"
+                    />
+                    <button
+                        name="action_complete"
+                        string="Mark as Completed"
+                        type="object"
+                        class="btn-success"
+                        invisible="state != 'active'"
+                    />
+                    <button
+                        name="action_reset_draft"
+                        string="Reset to Draft"
+                        type="object"
+                        invisible="state == 'draft'"
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Plan Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Plan Details">
+                            <field name="member_id" options="{'no_create': True}"/>
+                            <field name="trainer_id" options="{'no_create': True}"/>
+                            <field name="category_id" options="{'no_create': True}"/>
+                        </group>
+                        <group string="Schedule">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="total_calories" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Exercises" name="exercises">
+                            <field name="workout_line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="exercise_id" options="{'no_create': True}"/>
+                                    <field name="workout_day_ids" widget="many2many_tags"/>
+                                    <field name="sets"/>
+                                    <field name="reps"/>
+                                    <field name="duration" readonly="1"/>
+                                    <field name="calories" readonly="1"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_gym_workout_plan_search" model="ir.ui.view">
+        <field name="name">gym.workout.plan.search</field>
+        <field name="model">gym.workout.plan</field>
+        <field name="arch" type="xml">
+            <search string="Workout Plans">
+                <field name="name"/>
+                <field name="member_id"/>
+                <field name="trainer_id"/>
+                <field name="category_id"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Active" name="active" domain="[('state', '=', 'active')]"/>
+                <filter string="Completed" name="completed" domain="[('state', '=', 'completed')]"/>
+                <group>
+                    <filter string="Member" name="group_member" context="{'group_by': 'member_id'}"/>
+                    <filter string="Trainer" name="group_trainer" context="{'group_by': 'trainer_id'}"/>
+                    <filter string="Category" name="group_category" context="{'group_by': 'category_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_gym_workout_plan" model="ir.actions.act_window">
+        <field name="name">Workout Plans</field>
+        <field name="res_model">gym.workout.plan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

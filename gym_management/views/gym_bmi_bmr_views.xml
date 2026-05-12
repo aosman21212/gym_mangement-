@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gym_bmi_bmr_tree" model="ir.ui.view">
+        <field name="name">gym.bmi.bmr.tree</field>
+        <field name="model">gym.bmi.bmr</field>
+        <field name="arch" type="xml">
+            <list string="BMI &amp; BMR Records">
+                <field name="member_id"/>
+                <field name="date"/>
+                <field name="height"/>
+                <field name="weight"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="bmi" digits="[6,2]"/>
+                <field name="bmi_category"/>
+                <field name="bmr" digits="[10,2]"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_bmi_bmr_form" model="ir.ui.view">
+        <field name="name">gym.bmi.bmr.form</field>
+        <field name="model">gym.bmi.bmr</field>
+        <field name="arch" type="xml">
+            <form string="BMI &amp; BMR Record">
+                <sheet>
+                    <group>
+                        <group string="Member Information">
+                            <field name="member_id" options="{'no_create': True}"/>
+                            <field name="date"/>
+                            <field name="gender"/>
+                        </group>
+                        <group string="Body Measurements">
+                            <field name="height"/>
+                            <field name="weight"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                    <group string="Results">
+                        <group>
+                            <field name="bmi" readonly="1" digits="[6,2]"/>
+                            <field name="bmi_category" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="bmr" readonly="1" digits="[10,2]"/>
+                        </group>
+                    </group>
+                    <group string="BMI Categories Reference">
+                        <div colspan="2" class="alert alert-info" role="alert">
+                            <strong>BMI Categories:</strong>
+                            Underweight: &lt; 18.5 |
+                            Normal: 18.5 - 24.9 |
+                            Overweight: 25.0 - 29.9 |
+                            Obese: ≥ 30.0
+                            <br/>
+                            <strong>BMR Formula (Mifflin-St Jeor):</strong>
+                            Men: 10×Weight + 6.25×Height − 5×Age + 5 |
+                            Women: 10×Weight + 6.25×Height − 5×Age − 161
+                        </div>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_gym_bmi_bmr_search" model="ir.ui.view">
+        <field name="name">gym.bmi.bmr.search</field>
+        <field name="model">gym.bmi.bmr</field>
+        <field name="arch" type="xml">
+            <search string="BMI &amp; BMR Records">
+                <field name="member_id"/>
+                <field name="date"/>
+                <filter string="Underweight" name="underweight" domain="[('bmi_category', '=', 'Underweight')]"/>
+                <filter string="Normal" name="normal" domain="[('bmi_category', '=', 'Normal')]"/>
+                <filter string="Overweight" name="overweight" domain="[('bmi_category', '=', 'Overweight')]"/>
+                <filter string="Obese" name="obese" domain="[('bmi_category', '=', 'Obese')]"/>
+                <group>
+                    <filter string="Member" name="group_member" context="{'group_by': 'member_id'}"/>
+                    <filter string="BMI Category" name="group_category" context="{'group_by': 'bmi_category'}"/>
+                    <filter string="Gender" name="group_gender" context="{'group_by': 'gender'}"/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_gym_bmi_bmr" model="ir.actions.act_window">
+        <field name="name">BMI &amp; BMR Records</field>
+        <field name="res_model">gym.bmi.bmr</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

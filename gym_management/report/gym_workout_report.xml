@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_gym_workout_report" model="ir.actions.report">
+        <field name="name">Workout Plan</field>
+        <field name="model">gym.workout.plan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gym_management.report_gym_workout_template</field>
+        <field name="report_file">gym_management.report_gym_workout_template</field>
+        <field name="print_report_name">'Workout Plan - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_gym_workout_plan"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+</odoo>

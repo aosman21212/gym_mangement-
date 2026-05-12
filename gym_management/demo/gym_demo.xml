@@ -1,0 +1,1389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- =========================================================
+         1. Trainer Skills (gym.trainer.skill)
+         ========================================================= -->
+    <record id="demo_skill_bodybuilding" model="gym.trainer.skill">
+        <field name="name">Bodybuilding</field>
+    </record>
+    <record id="demo_skill_cardio" model="gym.trainer.skill">
+        <field name="name">Cardio</field>
+    </record>
+    <record id="demo_skill_yoga" model="gym.trainer.skill">
+        <field name="name">Yoga</field>
+    </record>
+    <record id="demo_skill_pilates" model="gym.trainer.skill">
+        <field name="name">Pilates</field>
+    </record>
+    <record id="demo_skill_crossfit" model="gym.trainer.skill">
+        <field name="name">CrossFit</field>
+    </record>
+    <record id="demo_skill_nutrition" model="gym.trainer.skill">
+        <field name="name">Nutrition</field>
+    </record>
+    <record id="demo_skill_zumba" model="gym.trainer.skill">
+        <field name="name">Zumba</field>
+    </record>
+    <record id="demo_skill_swimming" model="gym.trainer.skill">
+        <field name="name">Swimming</field>
+    </record>
+
+    <!-- =========================================================
+         2. Body Parts (gym.body.part)
+         ========================================================= -->
+    <record id="demo_body_part_chest" model="gym.body.part">
+        <field name="name">Chest</field>
+    </record>
+    <record id="demo_body_part_back" model="gym.body.part">
+        <field name="name">Back</field>
+    </record>
+    <record id="demo_body_part_shoulders" model="gym.body.part">
+        <field name="name">Shoulders</field>
+    </record>
+    <record id="demo_body_part_biceps" model="gym.body.part">
+        <field name="name">Biceps</field>
+    </record>
+    <record id="demo_body_part_triceps" model="gym.body.part">
+        <field name="name">Triceps</field>
+    </record>
+    <record id="demo_body_part_legs" model="gym.body.part">
+        <field name="name">Legs</field>
+    </record>
+    <record id="demo_body_part_core" model="gym.body.part">
+        <field name="name">Core</field>
+    </record>
+    <record id="demo_body_part_glutes" model="gym.body.part">
+        <field name="name">Glutes</field>
+    </record>
+    <record id="demo_body_part_calves" model="gym.body.part">
+        <field name="name">Calves</field>
+    </record>
+    <record id="demo_body_part_forearms" model="gym.body.part">
+        <field name="name">Forearms</field>
+    </record>
+
+    <!-- =========================================================
+         3. Workout Days (gym.workout.day)
+         ========================================================= -->
+    <record id="demo_day_monday" model="gym.workout.day">
+        <field name="name">Monday</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="demo_day_tuesday" model="gym.workout.day">
+        <field name="name">Tuesday</field>
+        <field name="sequence">2</field>
+    </record>
+    <record id="demo_day_wednesday" model="gym.workout.day">
+        <field name="name">Wednesday</field>
+        <field name="sequence">3</field>
+    </record>
+    <record id="demo_day_thursday" model="gym.workout.day">
+        <field name="name">Thursday</field>
+        <field name="sequence">4</field>
+    </record>
+    <record id="demo_day_friday" model="gym.workout.day">
+        <field name="name">Friday</field>
+        <field name="sequence">5</field>
+    </record>
+    <record id="demo_day_saturday" model="gym.workout.day">
+        <field name="name">Saturday</field>
+        <field name="sequence">6</field>
+    </record>
+    <record id="demo_day_sunday" model="gym.workout.day">
+        <field name="name">Sunday</field>
+        <field name="sequence">7</field>
+    </record>
+
+    <!-- =========================================================
+         4. Workout Categories (gym.workout.category)
+         ========================================================= -->
+    <record id="demo_category_strength" model="gym.workout.category">
+        <field name="name">Strength Training</field>
+    </record>
+    <record id="demo_category_cardio" model="gym.workout.category">
+        <field name="name">Cardio</field>
+    </record>
+    <record id="demo_category_flexibility" model="gym.workout.category">
+        <field name="name">Flexibility</field>
+    </record>
+    <record id="demo_category_hiit" model="gym.workout.category">
+        <field name="name">HIIT</field>
+    </record>
+    <record id="demo_category_rehabilitation" model="gym.workout.category">
+        <field name="name">Rehabilitation</field>
+    </record>
+    <record id="demo_category_weight_loss" model="gym.workout.category">
+        <field name="name">Weight Loss</field>
+    </record>
+    <record id="demo_category_muscle_gain" model="gym.workout.category">
+        <field name="name">Muscle Gain</field>
+    </record>
+
+    <!-- =========================================================
+         5. Exercise Types (gym.exercise.type)
+         ========================================================= -->
+    <record id="demo_exercise_type_compound" model="gym.exercise.type">
+        <field name="name">Compound</field>
+    </record>
+    <record id="demo_exercise_type_isolation" model="gym.exercise.type">
+        <field name="name">Isolation</field>
+    </record>
+    <record id="demo_exercise_type_cardio" model="gym.exercise.type">
+        <field name="name">Cardio</field>
+    </record>
+    <record id="demo_exercise_type_stretching" model="gym.exercise.type">
+        <field name="name">Stretching</field>
+    </record>
+    <record id="demo_exercise_type_plyometric" model="gym.exercise.type">
+        <field name="name">Plyometric</field>
+    </record>
+    <record id="demo_exercise_type_calisthenics" model="gym.exercise.type">
+        <field name="name">Calisthenics</field>
+    </record>
+
+    <!-- =========================================================
+         6. Diet Intervals (gym.diet.interval)
+         ========================================================= -->
+    <record id="demo_interval_breakfast" model="gym.diet.interval">
+        <field name="name">Breakfast</field>
+    </record>
+    <record id="demo_interval_mid_morning" model="gym.diet.interval">
+        <field name="name">Mid-Morning Snack</field>
+    </record>
+    <record id="demo_interval_lunch" model="gym.diet.interval">
+        <field name="name">Lunch</field>
+    </record>
+    <record id="demo_interval_evening" model="gym.diet.interval">
+        <field name="name">Evening Snack</field>
+    </record>
+    <record id="demo_interval_dinner" model="gym.diet.interval">
+        <field name="name">Dinner</field>
+    </record>
+    <record id="demo_interval_pre_workout" model="gym.diet.interval">
+        <field name="name">Pre-Workout</field>
+    </record>
+    <record id="demo_interval_post_workout" model="gym.diet.interval">
+        <field name="name">Post-Workout</field>
+    </record>
+
+    <!-- =========================================================
+         7. Equipment (gym.equipment)
+         ========================================================= -->
+    <record id="demo_equipment_barbell" model="gym.equipment">
+        <field name="name">Barbell</field>
+    </record>
+    <record id="demo_equipment_dumbbell" model="gym.equipment">
+        <field name="name">Dumbbell</field>
+    </record>
+    <record id="demo_equipment_treadmill" model="gym.equipment">
+        <field name="name">Treadmill</field>
+    </record>
+    <record id="demo_equipment_resistance_band" model="gym.equipment">
+        <field name="name">Resistance Band</field>
+    </record>
+    <record id="demo_equipment_pullup_bar" model="gym.equipment">
+        <field name="name">Pull-up Bar</field>
+    </record>
+    <record id="demo_equipment_bench_press" model="gym.equipment">
+        <field name="name">Bench Press</field>
+    </record>
+    <record id="demo_equipment_kettlebell" model="gym.equipment">
+        <field name="name">Kettlebell</field>
+    </record>
+    <record id="demo_equipment_cable_machine" model="gym.equipment">
+        <field name="name">Cable Machine</field>
+    </record>
+    <record id="demo_equipment_leg_press" model="gym.equipment">
+        <field name="name">Leg Press Machine</field>
+    </record>
+    <record id="demo_equipment_smith_machine" model="gym.equipment">
+        <field name="name">Smith Machine</field>
+    </record>
+
+    <!-- =========================================================
+         8. Food Items (gym.food.item)
+         ========================================================= -->
+    <record id="demo_food_chicken_breast" model="gym.food.item">
+        <field name="name">Chicken Breast</field>
+        <field name="calories">165</field>
+        <field name="protein">31</field>
+        <field name="carbs">0</field>
+        <field name="fat">3.6</field>
+    </record>
+    <record id="demo_food_brown_rice" model="gym.food.item">
+        <field name="name">Brown Rice</field>
+        <field name="calories">216</field>
+        <field name="protein">5</field>
+        <field name="carbs">45</field>
+        <field name="fat">1.8</field>
+    </record>
+    <record id="demo_food_eggs" model="gym.food.item">
+        <field name="name">Eggs</field>
+        <field name="calories">155</field>
+        <field name="protein">13</field>
+        <field name="carbs">1.1</field>
+        <field name="fat">11</field>
+    </record>
+    <record id="demo_food_oatmeal" model="gym.food.item">
+        <field name="name">Oatmeal</field>
+        <field name="calories">389</field>
+        <field name="protein">17</field>
+        <field name="carbs">66</field>
+        <field name="fat">7</field>
+    </record>
+    <record id="demo_food_banana" model="gym.food.item">
+        <field name="name">Banana</field>
+        <field name="calories">89</field>
+        <field name="protein">1.1</field>
+        <field name="carbs">23</field>
+        <field name="fat">0.3</field>
+    </record>
+    <record id="demo_food_broccoli" model="gym.food.item">
+        <field name="name">Broccoli</field>
+        <field name="calories">55</field>
+        <field name="protein">3.7</field>
+        <field name="carbs">11</field>
+        <field name="fat">0.6</field>
+    </record>
+    <record id="demo_food_salmon" model="gym.food.item">
+        <field name="name">Salmon</field>
+        <field name="calories">208</field>
+        <field name="protein">20</field>
+        <field name="carbs">0</field>
+        <field name="fat">13</field>
+    </record>
+    <record id="demo_food_sweet_potato" model="gym.food.item">
+        <field name="name">Sweet Potato</field>
+        <field name="calories">103</field>
+        <field name="protein">2.3</field>
+        <field name="carbs">24</field>
+        <field name="fat">0.1</field>
+    </record>
+    <record id="demo_food_greek_yogurt" model="gym.food.item">
+        <field name="name">Greek Yogurt</field>
+        <field name="calories">100</field>
+        <field name="protein">10</field>
+        <field name="carbs">4</field>
+        <field name="fat">5</field>
+    </record>
+    <record id="demo_food_almonds" model="gym.food.item">
+        <field name="name">Almonds</field>
+        <field name="calories">579</field>
+        <field name="protein">21</field>
+        <field name="carbs">22</field>
+        <field name="fat">50</field>
+    </record>
+    <record id="demo_food_tuna" model="gym.food.item">
+        <field name="name">Tuna</field>
+        <field name="calories">144</field>
+        <field name="protein">30</field>
+        <field name="carbs">0</field>
+        <field name="fat">1</field>
+    </record>
+    <record id="demo_food_quinoa" model="gym.food.item">
+        <field name="name">Quinoa</field>
+        <field name="calories">222</field>
+        <field name="protein">8</field>
+        <field name="carbs">39</field>
+        <field name="fat">4</field>
+    </record>
+
+    <!-- =========================================================
+         9. Membership Types (gym.membership.type)
+         ========================================================= -->
+    <record id="demo_membership_type_monthly" model="gym.membership.type">
+        <field name="name">Monthly Basic</field>
+        <field name="duration">30</field>
+        <field name="price">49.99</field>
+    </record>
+    <record id="demo_membership_type_quarterly" model="gym.membership.type">
+        <field name="name">Quarterly Standard</field>
+        <field name="duration">90</field>
+        <field name="price">129.99</field>
+    </record>
+    <record id="demo_membership_type_semi_annual" model="gym.membership.type">
+        <field name="name">Semi-Annual Premium</field>
+        <field name="duration">180</field>
+        <field name="price">239.99</field>
+    </record>
+    <record id="demo_membership_type_annual" model="gym.membership.type">
+        <field name="name">Annual Elite</field>
+        <field name="duration">365</field>
+        <field name="price">449.99</field>
+    </record>
+    <record id="demo_membership_type_day" model="gym.membership.type">
+        <field name="name">Day Pass</field>
+        <field name="duration">1</field>
+        <field name="price">9.99</field>
+    </record>
+
+    <!-- =========================================================
+         10. Trainers (gym.trainer)
+         ========================================================= -->
+    <record id="demo_trainer_john" model="gym.trainer">
+        <field name="name">John Mitchell</field>
+        <field name="ref">TN0001</field>
+        <field name="gender">male</field>
+        <field name="specialization">Strength &amp; Conditioning</field>
+        <field name="joining_date">2023-01-15</field>
+        <field name="trainer_fee">50.0</field>
+        <field name="skill_ids" eval="[(4, ref('demo_skill_bodybuilding')), (4, ref('demo_skill_crossfit'))]"/>
+    </record>
+    <record id="demo_trainer_sarah" model="gym.trainer">
+        <field name="name">Sarah Williams</field>
+        <field name="ref">TN0002</field>
+        <field name="gender">female</field>
+        <field name="specialization">Yoga &amp; Wellness</field>
+        <field name="joining_date">2023-03-10</field>
+        <field name="trainer_fee">45.0</field>
+        <field name="skill_ids" eval="[(4, ref('demo_skill_yoga')), (4, ref('demo_skill_pilates')), (4, ref('demo_skill_nutrition'))]"/>
+    </record>
+    <record id="demo_trainer_carlos" model="gym.trainer">
+        <field name="name">Carlos Rodriguez</field>
+        <field name="ref">TN0003</field>
+        <field name="gender">male</field>
+        <field name="specialization">Cardio &amp; HIIT</field>
+        <field name="joining_date">2022-11-01</field>
+        <field name="trainer_fee">55.0</field>
+        <field name="skill_ids" eval="[(4, ref('demo_skill_cardio')), (4, ref('demo_skill_zumba')), (4, ref('demo_skill_crossfit'))]"/>
+    </record>
+
+    <!-- =========================================================
+         11. Members (gym.member)
+         ========================================================= -->
+    <record id="demo_member_ahmed" model="gym.member">
+        <field name="name">Ahmed Hassan</field>
+        <field name="ref">GM0001</field>
+        <field name="gender">male</field>
+        <field name="date_of_birth">1990-05-15</field>
+        <field name="blood_group">o+</field>
+        <field name="phone">+1234567890</field>
+        <field name="email">ahmed@example.com</field>
+        <field name="trainer_id" ref="demo_trainer_john"/>
+    </record>
+    <record id="demo_member_fatima" model="gym.member">
+        <field name="name">Fatima Al-Zahra</field>
+        <field name="ref">GM0002</field>
+        <field name="gender">female</field>
+        <field name="date_of_birth">1995-08-22</field>
+        <field name="blood_group">a+</field>
+        <field name="phone">+1234567891</field>
+        <field name="email">fatima@example.com</field>
+        <field name="trainer_id" ref="demo_trainer_sarah"/>
+    </record>
+    <record id="demo_member_michael" model="gym.member">
+        <field name="name">Michael Johnson</field>
+        <field name="ref">GM0003</field>
+        <field name="gender">male</field>
+        <field name="date_of_birth">1988-03-10</field>
+        <field name="blood_group">b+</field>
+        <field name="phone">+1234567892</field>
+        <field name="email">michael@example.com</field>
+        <field name="trainer_id" ref="demo_trainer_carlos"/>
+    </record>
+    <record id="demo_member_layla" model="gym.member">
+        <field name="name">Layla Ibrahim</field>
+        <field name="ref">GM0004</field>
+        <field name="gender">female</field>
+        <field name="date_of_birth">1998-12-05</field>
+        <field name="blood_group">ab+</field>
+        <field name="phone">+1234567893</field>
+        <field name="email">layla@example.com</field>
+        <field name="trainer_id" ref="demo_trainer_sarah"/>
+    </record>
+    <record id="demo_member_omar" model="gym.member">
+        <field name="name">Omar Khalid</field>
+        <field name="ref">GM0005</field>
+        <field name="gender">male</field>
+        <field name="date_of_birth">1992-07-18</field>
+        <field name="blood_group">o-</field>
+        <field name="phone">+1234567894</field>
+        <field name="email">omar@example.com</field>
+        <field name="trainer_id" ref="demo_trainer_john"/>
+    </record>
+
+    <!-- =========================================================
+         12. Memberships (gym.membership)
+         ========================================================= -->
+    <record id="demo_membership_ahmed" model="gym.membership">
+        <field name="ref">MS0001</field>
+        <field name="member_id" ref="demo_member_ahmed"/>
+        <field name="membership_type_id" ref="demo_membership_type_annual"/>
+        <field name="date_start">2026-01-01</field>
+        <field name="trainer_id" ref="demo_trainer_john"/>
+        <field name="trainer_fee">50.0</field>
+    </record>
+    <record id="demo_membership_fatima" model="gym.membership">
+        <field name="ref">MS0002</field>
+        <field name="member_id" ref="demo_member_fatima"/>
+        <field name="membership_type_id" ref="demo_membership_type_quarterly"/>
+        <field name="date_start">2026-03-01</field>
+        <field name="trainer_id" ref="demo_trainer_sarah"/>
+        <field name="trainer_fee">45.0</field>
+    </record>
+    <record id="demo_membership_michael" model="gym.membership">
+        <field name="ref">MS0003</field>
+        <field name="member_id" ref="demo_member_michael"/>
+        <field name="membership_type_id" ref="demo_membership_type_monthly"/>
+        <field name="date_start">2026-04-01</field>
+        <field name="trainer_id" ref="demo_trainer_carlos"/>
+        <field name="trainer_fee">55.0</field>
+    </record>
+    <record id="demo_membership_layla" model="gym.membership">
+        <field name="ref">MS0004</field>
+        <field name="member_id" ref="demo_member_layla"/>
+        <field name="membership_type_id" ref="demo_membership_type_semi_annual"/>
+        <field name="date_start">2026-02-01</field>
+        <field name="trainer_id" ref="demo_trainer_sarah"/>
+        <field name="trainer_fee">45.0</field>
+    </record>
+    <record id="demo_membership_omar" model="gym.membership">
+        <field name="ref">MS0005</field>
+        <field name="member_id" ref="demo_member_omar"/>
+        <field name="membership_type_id" ref="demo_membership_type_annual"/>
+        <field name="date_start">2026-01-15</field>
+        <field name="trainer_id" ref="demo_trainer_john"/>
+        <field name="trainer_fee">50.0</field>
+    </record>
+
+    <!-- =========================================================
+         13. Exercises (gym.exercise)
+         ========================================================= -->
+    <record id="demo_exercise_bench_press" model="gym.exercise">
+        <field name="name">Bench Press</field>
+        <field name="exercise_type_id" ref="demo_exercise_type_compound"/>
+        <field name="body_part_ids" eval="[(4, ref('demo_body_part_chest')), (4, ref('demo_body_part_triceps'))]"/>
+        <field name="duration">45</field>
+        <field name="calories_burned">200</field>
+        <field name="difficulty">intermediate</field>
+        <field name="steps">Lie on bench with feet flat on floor. Grip barbell slightly wider than shoulder width. Lower bar to chest, then press back up to starting position. Keep back flat and core engaged throughout the movement.</field>
+        <field name="benefits">Builds chest strength and muscle mass. Develops tricep and anterior deltoid power. Improves upper body pushing strength.</field>
+        <field name="equipment_ids" eval="[(4, ref('demo_equipment_barbell')), (4, ref('demo_equipment_bench_press'))]"/>
+    </record>
+    <record id="demo_exercise_deadlift" model="gym.exercise">
+        <field name="name">Deadlift</field>
+        <field name="exercise_type_id" ref="demo_exercise_type_compound"/>
+        <field name="body_part_ids" eval="[(4, ref('demo_body_part_back')), (4, ref('demo_body_part_legs')), (4, ref('demo_body_part_core'))]"/>
+        <field name="duration">45</field>
+        <field name="calories_burned">250</field>
+        <field name="difficulty">advanced</field>
+        <field name="steps">Stand with feet hip-width apart, bar over mid-foot. Hinge at hips, grip bar just outside legs. Keep back flat, chest up. Drive through heels to stand up, lock out hips at top.</field>
+        <field name="benefits">Builds total body strength. Develops posterior chain muscles. Increases overall power and functional fitness.</field>
+        <field name="equipment_ids" eval="[(4, ref('demo_equipment_barbell'))]"/>
+    </record>
+    <record id="demo_exercise_pullups" model="gym.exercise">
+        <field name="name">Pull-ups</field>
+        <field name="exercise_type_id" ref="demo_exercise_type_compound"/>
+        <field name="body_part_ids" eval="[(4, ref('demo_body_part_back')), (4, ref('demo_body_part_biceps'))]"/>
+        <field name="duration">30</field>
+        <field name="calories_burned">150</field>
+        <field name="difficulty">intermediate</field>
+        <field name="steps">Hang from bar with palms facing away, shoulder-width apart. Pull body up until chin clears bar. Lower back to full extension with control.</field>
+        <field name="benefits">Builds back width and bicep strength. Improves grip strength and upper body pulling power.</field>
+        <field name="equipment_ids" eval="[(4, ref('demo_equipment_pullup_bar'))]"/>
+    </record>
+    <record id="demo_exercise_running" model="gym.exercise">
+        <field name="name">Running</field>
+        <field name="exercise_type_id" ref="demo_exercise_type_cardio"/>
+        <field name="body_part_ids" eval="[(4, ref('demo_body_part_legs')), (4, ref('demo_body_part_core'))]"/>
+        <field name="duration">30</field>
+        <field name="calories_burned">300</field>
+        <field name="difficulty">beginner</field>
+        <field name="steps">Start at a comfortable pace. Maintain good posture with shoulders relaxed. Land mid-foot and push off with each stride. Breathe rhythmically throughout.</field>
+        <field name="benefits">Improves cardiovascular fitness. Burns calories effectively. Strengthens leg muscles and bones.</field>
+        <field name="equipment_ids" eval="[(4, ref('demo_equipment_treadmill'))]"/>
+    </record>
+    <record id="demo_exercise_plank" model="gym.exercise">
+        <field name="name">Plank</field>
+        <field name="exercise_type_id" ref="demo_exercise_type_calisthenics"/>
+        <field name="body_part_ids" eval="[(4, ref('demo_body_part_core'))]"/>
+        <field name="duration">15</field>
+        <field name="calories_burned">50</field>
+        <field name="difficulty">beginner</field>
+        <field name="steps">Start in forearm position with elbows under shoulders. Keep body straight from head to heels. Engage core and glutes. Hold position without letting hips sag or rise.</field>
+        <field name="benefits">Builds core stability and endurance. Improves posture. Strengthens the entire midsection.</field>
+    </record>
+    <record id="demo_exercise_bicep_curl" model="gym.exercise">
+        <field name="name">Bicep Curl</field>
+        <field name="exercise_type_id" ref="demo_exercise_type_isolation"/>
+        <field name="body_part_ids" eval="[(4, ref('demo_body_part_biceps')), (4, ref('demo_body_part_forearms'))]"/>
+        <field name="duration">30</field>
+        <field name="calories_burned">120</field>
+        <field name="difficulty">beginner</field>
+        <field name="steps">Stand with dumbbells at sides, palms facing forward. Keeping elbows at sides, curl weights up toward shoulders. Squeeze biceps at top, lower slowly back to starting position.</field>
+        <field name="benefits">Isolates and develops bicep muscles. Improves arm strength and size. Enhances grip strength.</field>
+        <field name="equipment_ids" eval="[(4, ref('demo_equipment_dumbbell'))]"/>
+    </record>
+
+    <!-- =========================================================
+         14. Workout Plans (gym.workout.plan) with Lines
+         ========================================================= -->
+
+    <!-- Plan 1: Strength Foundation Program -->
+    <record id="demo_workout_plan_strength" model="gym.workout.plan">
+        <field name="name">Strength Foundation Program</field>
+        <field name="member_id" ref="demo_member_ahmed"/>
+        <field name="trainer_id" ref="demo_trainer_john"/>
+        <field name="category_id" ref="demo_category_strength"/>
+        <field name="date_start">2026-04-01</field>
+        <field name="date_end">2026-06-30</field>
+        <field name="state">active</field>
+    </record>
+    <record id="demo_workout_line_bench_press" model="gym.workout.plan.line">
+        <field name="workout_plan_id" ref="demo_workout_plan_strength"/>
+        <field name="exercise_id" ref="demo_exercise_bench_press"/>
+        <field name="workout_day_ids" eval="[(4, ref('demo_day_monday')), (4, ref('demo_day_wednesday')), (4, ref('demo_day_friday'))]"/>
+        <field name="sets">4</field>
+        <field name="reps">10</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="demo_workout_line_deadlift" model="gym.workout.plan.line">
+        <field name="workout_plan_id" ref="demo_workout_plan_strength"/>
+        <field name="exercise_id" ref="demo_exercise_deadlift"/>
+        <field name="workout_day_ids" eval="[(4, ref('demo_day_tuesday')), (4, ref('demo_day_thursday'))]"/>
+        <field name="sets">3</field>
+        <field name="reps">8</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="demo_workout_line_pullups" model="gym.workout.plan.line">
+        <field name="workout_plan_id" ref="demo_workout_plan_strength"/>
+        <field name="exercise_id" ref="demo_exercise_pullups"/>
+        <field name="workout_day_ids" eval="[(4, ref('demo_day_monday')), (4, ref('demo_day_wednesday')), (4, ref('demo_day_friday'))]"/>
+        <field name="sets">3</field>
+        <field name="reps">12</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- Plan 2: Cardio Blast -->
+    <record id="demo_workout_plan_cardio" model="gym.workout.plan">
+        <field name="name">Cardio Blast</field>
+        <field name="member_id" ref="demo_member_fatima"/>
+        <field name="trainer_id" ref="demo_trainer_sarah"/>
+        <field name="category_id" ref="demo_category_cardio"/>
+        <field name="date_start">2026-04-01</field>
+        <field name="date_end">2026-05-31</field>
+        <field name="state">active</field>
+    </record>
+    <record id="demo_workout_line_running" model="gym.workout.plan.line">
+        <field name="workout_plan_id" ref="demo_workout_plan_cardio"/>
+        <field name="exercise_id" ref="demo_exercise_running"/>
+        <field name="workout_day_ids" eval="[(4, ref('demo_day_monday')), (4, ref('demo_day_wednesday')), (4, ref('demo_day_friday')), (4, ref('demo_day_saturday'))]"/>
+        <field name="sets">1</field>
+        <field name="reps">1</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="demo_workout_line_plank" model="gym.workout.plan.line">
+        <field name="workout_plan_id" ref="demo_workout_plan_cardio"/>
+        <field name="exercise_id" ref="demo_exercise_plank"/>
+        <field name="workout_day_ids" eval="[(4, ref('demo_day_tuesday')), (4, ref('demo_day_thursday'))]"/>
+        <field name="sets">3</field>
+        <field name="reps">1</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <!-- =========================================================
+         15. Diet Plans (gym.diet.plan) with Lines
+         ========================================================= -->
+
+    <!-- Plan 1: Muscle Building Diet -->
+    <record id="demo_diet_plan_muscle" model="gym.diet.plan">
+        <field name="name">Muscle Building Diet</field>
+        <field name="member_id" ref="demo_member_ahmed"/>
+        <field name="trainer_id" ref="demo_trainer_john"/>
+        <field name="date_start">2026-04-01</field>
+        <field name="date_end">2026-06-30</field>
+        <field name="state">active</field>
+    </record>
+    <!-- Breakfast: Oatmeal 100g -->
+    <record id="demo_diet_line_muscle_breakfast_oatmeal_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_oatmeal"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_breakfast_eggs_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_eggs"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">150</field>
+    </record>
+    <!-- Lunch -->
+    <record id="demo_diet_line_muscle_lunch_chicken_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_rice_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_brown_rice"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_broccoli_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Dinner -->
+    <record id="demo_diet_line_muscle_dinner_salmon_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_salmon"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_sweet_potato_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">150</field>
+    </record>
+    <!-- Post-Workout -->
+    <record id="demo_diet_line_muscle_postworkout_yogurt_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_banana_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Tuesday -->
+    <record id="demo_diet_line_muscle_breakfast_oatmeal_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_oatmeal"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_breakfast_eggs_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_eggs"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_chicken_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_rice_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_brown_rice"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_broccoli_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_salmon_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_salmon"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_sweet_potato_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_yogurt_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_banana_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Wednesday -->
+    <record id="demo_diet_line_muscle_breakfast_oatmeal_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_oatmeal"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_breakfast_eggs_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_eggs"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_chicken_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_rice_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_brown_rice"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_broccoli_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_salmon_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_salmon"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_sweet_potato_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_yogurt_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_banana_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Thursday -->
+    <record id="demo_diet_line_muscle_breakfast_oatmeal_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_oatmeal"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_breakfast_eggs_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_eggs"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_chicken_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_rice_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_brown_rice"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_broccoli_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_salmon_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_salmon"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_sweet_potato_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_yogurt_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_banana_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Friday -->
+    <record id="demo_diet_line_muscle_breakfast_oatmeal_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_oatmeal"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_breakfast_eggs_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_eggs"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_chicken_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_rice_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_brown_rice"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_broccoli_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_salmon_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_salmon"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_sweet_potato_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_yogurt_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_banana_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Saturday -->
+    <record id="demo_diet_line_muscle_breakfast_oatmeal_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_oatmeal"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_breakfast_eggs_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_eggs"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_chicken_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_rice_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_brown_rice"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_broccoli_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_salmon_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_salmon"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_sweet_potato_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_yogurt_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_banana_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Sunday -->
+    <record id="demo_diet_line_muscle_breakfast_oatmeal_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_oatmeal"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_breakfast_eggs_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_eggs"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_chicken_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_rice_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_brown_rice"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_lunch_broccoli_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_salmon_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_salmon"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">200</field>
+    </record>
+    <record id="demo_diet_line_muscle_dinner_sweet_potato_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_yogurt_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_muscle_postworkout_banana_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_muscle"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_post_workout"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">100</field>
+    </record>
+
+    <!-- Plan 2: Weight Loss Plan -->
+    <record id="demo_diet_plan_weight_loss" model="gym.diet.plan">
+        <field name="name">Weight Loss Plan</field>
+        <field name="member_id" ref="demo_member_fatima"/>
+        <field name="trainer_id" ref="demo_trainer_sarah"/>
+        <field name="date_start">2026-04-01</field>
+        <field name="date_end">2026-05-31</field>
+        <field name="state">active</field>
+    </record>
+    <!-- Monday -->
+    <record id="demo_diet_line_wl_breakfast_yogurt_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_breakfast_banana_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_tuna_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_tuna"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_broccoli_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_chicken_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_sweet_potato_mon" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">monday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Tuesday -->
+    <record id="demo_diet_line_wl_breakfast_yogurt_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_breakfast_banana_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_tuna_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_tuna"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_broccoli_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_chicken_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_sweet_potato_tue" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">tuesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Wednesday -->
+    <record id="demo_diet_line_wl_breakfast_yogurt_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_breakfast_banana_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_tuna_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_tuna"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_broccoli_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_chicken_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_sweet_potato_wed" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">wednesday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Thursday -->
+    <record id="demo_diet_line_wl_breakfast_yogurt_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_breakfast_banana_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_tuna_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_tuna"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_broccoli_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_chicken_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_sweet_potato_thu" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">thursday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Friday -->
+    <record id="demo_diet_line_wl_breakfast_yogurt_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_breakfast_banana_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_tuna_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_tuna"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_broccoli_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_chicken_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_sweet_potato_fri" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">friday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Saturday -->
+    <record id="demo_diet_line_wl_breakfast_yogurt_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_breakfast_banana_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_tuna_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_tuna"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_broccoli_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_chicken_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_sweet_potato_sat" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">saturday</field>
+        <field name="quantity">100</field>
+    </record>
+    <!-- Sunday -->
+    <record id="demo_diet_line_wl_breakfast_yogurt_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_greek_yogurt"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_breakfast_banana_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_banana"/>
+        <field name="diet_interval_id" ref="demo_interval_breakfast"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_tuna_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_tuna"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_lunch_broccoli_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_broccoli"/>
+        <field name="diet_interval_id" ref="demo_interval_lunch"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">100</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_chicken_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_chicken_breast"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">150</field>
+    </record>
+    <record id="demo_diet_line_wl_dinner_sweet_potato_sun" model="gym.diet.plan.line">
+        <field name="diet_plan_id" ref="demo_diet_plan_weight_loss"/>
+        <field name="food_item_id" ref="demo_food_sweet_potato"/>
+        <field name="diet_interval_id" ref="demo_interval_dinner"/>
+        <field name="diet_day">sunday</field>
+        <field name="quantity">100</field>
+    </record>
+
+    <!-- =========================================================
+         16. BMI/BMR Records (gym.bmi.bmr)
+         ========================================================= -->
+    <record id="demo_bmi_ahmed" model="gym.bmi.bmr">
+        <field name="member_id" ref="demo_member_ahmed"/>
+        <field name="date">2026-04-01</field>
+        <field name="height">178</field>
+        <field name="weight">85</field>
+        <field name="age">36</field>
+        <field name="gender">male</field>
+    </record>
+    <record id="demo_bmi_fatima" model="gym.bmi.bmr">
+        <field name="member_id" ref="demo_member_fatima"/>
+        <field name="date">2026-04-01</field>
+        <field name="height">165</field>
+        <field name="weight">62</field>
+        <field name="age">31</field>
+        <field name="gender">female</field>
+    </record>
+    <record id="demo_bmi_michael" model="gym.bmi.bmr">
+        <field name="member_id" ref="demo_member_michael"/>
+        <field name="date">2026-04-01</field>
+        <field name="height">182</field>
+        <field name="weight">90</field>
+        <field name="age">38</field>
+        <field name="gender">male</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Trainer Skill Views -->
+    <record id="view_gym_trainer_skill_tree" model="ir.ui.view">
+        <field name="name">gym.trainer.skill.tree</field>
+        <field name="model">gym.trainer.skill</field>
+        <field name="arch" type="xml">
+            <list string="Trainer Skills">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_trainer_skill_form" model="ir.ui.view">
+        <field name="name">gym.trainer.skill.form</field>
+        <field name="model">gym.trainer.skill</field>
+        <field name="arch" type="xml">
+            <form string="Trainer Skill">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gym_trainer_skill" model="ir.actions.act_window">
+        <field name="name">Trainer Skills</field>
+        <field name="res_model">gym.trainer.skill</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Body Part Views -->
+    <record id="view_gym_body_part_tree" model="ir.ui.view">
+        <field name="name">gym.body.part.tree</field>
+        <field name="model">gym.body.part</field>
+        <field name="arch" type="xml">
+            <list string="Body Parts">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_body_part_form" model="ir.ui.view">
+        <field name="name">gym.body.part.form</field>
+        <field name="model">gym.body.part</field>
+        <field name="arch" type="xml">
+            <form string="Body Part">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gym_body_part" model="ir.actions.act_window">
+        <field name="name">Body Parts</field>
+        <field name="res_model">gym.body.part</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Workout Day Views -->
+    <record id="view_gym_workout_day_tree" model="ir.ui.view">
+        <field name="name">gym.workout.day.tree</field>
+        <field name="model">gym.workout.day</field>
+        <field name="arch" type="xml">
+            <list string="Workout Days" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_workout_day_form" model="ir.ui.view">
+        <field name="name">gym.workout.day.form</field>
+        <field name="model">gym.workout.day</field>
+        <field name="arch" type="xml">
+            <form string="Workout Day">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gym_workout_day" model="ir.actions.act_window">
+        <field name="name">Workout Days</field>
+        <field name="res_model">gym.workout.day</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Workout Category Views -->
+    <record id="view_gym_workout_category_tree" model="ir.ui.view">
+        <field name="name">gym.workout.category.tree</field>
+        <field name="model">gym.workout.category</field>
+        <field name="arch" type="xml">
+            <list string="Workout Categories">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_workout_category_form" model="ir.ui.view">
+        <field name="name">gym.workout.category.form</field>
+        <field name="model">gym.workout.category</field>
+        <field name="arch" type="xml">
+            <form string="Workout Category">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gym_workout_category" model="ir.actions.act_window">
+        <field name="name">Workout Categories</field>
+        <field name="res_model">gym.workout.category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Exercise Type Views -->
+    <record id="view_gym_exercise_type_tree" model="ir.ui.view">
+        <field name="name">gym.exercise.type.tree</field>
+        <field name="model">gym.exercise.type</field>
+        <field name="arch" type="xml">
+            <list string="Exercise Types">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_exercise_type_form" model="ir.ui.view">
+        <field name="name">gym.exercise.type.form</field>
+        <field name="model">gym.exercise.type</field>
+        <field name="arch" type="xml">
+            <form string="Exercise Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gym_exercise_type" model="ir.actions.act_window">
+        <field name="name">Exercise Types</field>
+        <field name="res_model">gym.exercise.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Diet Interval Views -->
+    <record id="view_gym_diet_interval_tree" model="ir.ui.view">
+        <field name="name">gym.diet.interval.tree</field>
+        <field name="model">gym.diet.interval</field>
+        <field name="arch" type="xml">
+            <list string="Diet Intervals">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_diet_interval_form" model="ir.ui.view">
+        <field name="name">gym.diet.interval.form</field>
+        <field name="model">gym.diet.interval</field>
+        <field name="arch" type="xml">
+            <form string="Diet Interval">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gym_diet_interval" model="ir.actions.act_window">
+        <field name="name">Diet Intervals</field>
+        <field name="res_model">gym.diet.interval</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Equipment Views -->
+    <record id="view_gym_equipment_tree" model="ir.ui.view">
+        <field name="name">gym.equipment.tree</field>
+        <field name="model">gym.equipment</field>
+        <field name="arch" type="xml">
+            <list string="Equipment">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_equipment_form" model="ir.ui.view">
+        <field name="name">gym.equipment.form</field>
+        <field name="model">gym.equipment</field>
+        <field name="arch" type="xml">
+            <form string="Equipment">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gym_equipment" model="ir.actions.act_window">
+        <field name="name">Equipment</field>
+        <field name="res_model">gym.equipment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Food Item Views -->
+    <record id="view_gym_food_item_tree" model="ir.ui.view">
+        <field name="name">gym.food.item.tree</field>
+        <field name="model">gym.food.item</field>
+        <field name="arch" type="xml">
+            <list string="Food Items">
+                <field name="name"/>
+                <field name="calories"/>
+                <field name="protein"/>
+                <field name="carbs"/>
+                <field name="fat"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gym_food_item_form" model="ir.ui.view">
+        <field name="name">gym.food.item.form</field>
+        <field name="model">gym.food.item</field>
+        <field name="arch" type="xml">
+            <form string="Food Item">
+                <sheet>
+                    <group string="Food Item Details">
+                        <group>
+                            <field name="name"/>
+                            <field name="calories"/>
+                        </group>
+                        <group>
+                            <field name="protein"/>
+                            <field name="carbs"/>
+                            <field name="fat"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_gym_food_item_search" model="ir.ui.view">
+        <field name="name">gym.food.item.search</field>
+        <field name="model">gym.food.item</field>
+        <field name="arch" type="xml">
+            <search string="Food Items">
+                <field name="name"/>
+                <filter string="High Protein" name="high_protein" domain="[('protein', '>=', 20)]"/>
+                <filter string="Low Calorie" name="low_calorie" domain="[('calories', '&lt;', 100)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_gym_food_item" model="ir.actions.act_window">
+        <field name="name">Food Items</field>
+        <field name="res_model">gym.food.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

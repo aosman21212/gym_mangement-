@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_gym_member_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Header -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <h2 class="text-primary">Member Profile</h2>
+                                <h3><t t-esc="doc.name"/></h3>
+                                <span class="badge badge-pill"
+                                    t-attf-class="badge #{doc.membership_status == 'active' and 'badge-success' or doc.membership_status == 'expired' and 'badge-danger' or 'badge-secondary'}">
+                                    <t t-esc="doc.membership_status.title() if doc.membership_status else 'No Membership'"/>
+                                </span>
+                            </div>
+                            <div class="col-6 text-right">
+                                <strong>Member ID:</strong> <t t-esc="doc.ref"/><br/>
+                                <strong>Report Date:</strong>
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/>
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <!-- Personal Information -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <h4 class="text-muted">Personal Information</h4>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Date of Birth:</strong></td>
+                                            <td><t t-esc="doc.date_of_birth"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Age:</strong></td>
+                                            <td><t t-esc="doc.age"/> years</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Gender:</strong></td>
+                                            <td><t t-esc="doc.gender.title() if doc.gender else '-'"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Blood Group:</strong></td>
+                                            <td><t t-esc="doc.blood_group.upper() if doc.blood_group else '-'"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <h4 class="text-muted">Contact Information</h4>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Phone:</strong></td>
+                                            <td><t t-esc="doc.phone or '-'"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Email:</strong></td>
+                                            <td><t t-esc="doc.email or '-'"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>City:</strong></td>
+                                            <td><t t-esc="doc.city or '-'"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Country:</strong></td>
+                                            <td><t t-esc="doc.country_id.name if doc.country_id else '-'"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Trainer Info -->
+                        <t t-if="doc.trainer_id">
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <h4 class="text-muted">Assigned Trainer</h4>
+                                    <table class="table table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Name:</strong></td>
+                                                <td><span t-field="doc.trainer_id"/></td>
+                                                <td><strong>Specialization:</strong></td>
+                                                <td><t t-esc="doc.trainer_id.specialization or '-'"/></td>
+                                                <td><strong>Phone:</strong></td>
+                                                <td><t t-esc="doc.trainer_id.phone or '-'"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </t>
+
+                        <!-- Membership History -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4 class="text-muted">Membership History</h4>
+                                <t t-if="doc.membership_ids">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Reference</th>
+                                                <th>Type</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Fee</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="doc.membership_ids" t-as="membership">
+                                                <tr>
+                                                    <td><t t-esc="membership.ref"/></td>
+                                                    <td><span t-field="membership.membership_type_id"/></td>
+                                                    <td><t t-esc="membership.date_start"/></td>
+                                                    <td><t t-esc="membership.date_end"/></td>
+                                                    <td><span t-field="membership.price" t-options="{'widget': 'monetary', 'display_currency': membership.currency_id}"/></td>
+                                                    <td><t t-esc="membership.state.title()"/></td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </t>
+                                <t t-else="">
+                                    <p class="text-muted">No memberships found.</p>
+                                </t>
+                            </div>
+                        </div>
+
+                        <!-- Latest BMI/BMR -->
+                        <t t-if="doc.bmi_bmr_ids">
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <h4 class="text-muted">Latest BMI &amp; BMR Record</h4>
+                                    <t t-set="latest_bmi" t-value="doc.bmi_bmr_ids[0]"/>
+                                    <table class="table table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Date:</strong></td>
+                                                <td><t t-esc="latest_bmi.date"/></td>
+                                                <td><strong>Height:</strong></td>
+                                                <td><t t-esc="latest_bmi.height"/> cm</td>
+                                                <td><strong>Weight:</strong></td>
+                                                <td><t t-esc="latest_bmi.weight"/> kg</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>BMI:</strong></td>
+                                                <td><t t-esc="'%.2f' % latest_bmi.bmi"/></td>
+                                                <td><strong>Category:</strong></td>
+                                                <td><t t-esc="latest_bmi.bmi_category"/></td>
+                                                <td><strong>BMR:</strong></td>
+                                                <td><t t-esc="'%.2f' % latest_bmi.bmr"/> kcal/day</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </t>
+
+                        <!-- Notes -->
+                        <t t-if="doc.notes">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h4 class="text-muted">Notes</h4>
+                                    <p><t t-esc="doc.notes"/></p>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_gym_diet_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Header -->
+                        <div class="row mb-4">
+                            <div class="col-8">
+                                <h2 class="text-primary">Diet Schedule</h2>
+                                <h3><t t-esc="doc.name"/></h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span class="badge badge-pill"
+                                    t-attf-class="badge #{doc.state == 'active' and 'badge-success' or doc.state == 'completed' and 'badge-info' or 'badge-warning'}">
+                                    <t t-esc="doc.state.title()"/>
+                                </span>
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <!-- Plan Details -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Member:</strong></td>
+                                            <td><span t-field="doc.member_id"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Trainer/Nutritionist:</strong></td>
+                                            <td><t t-esc="doc.trainer_id.name if doc.trainer_id else '-'"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Start Date:</strong></td>
+                                            <td><t t-esc="doc.date_start"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>End Date:</strong></td>
+                                            <td><t t-esc="doc.date_end"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total Daily Calories:</strong></td>
+                                            <td><strong><t t-esc="'%.1f' % doc.total_calories"/> kcal</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Diet Schedule by Day -->
+                        <t t-if="doc.diet_line_ids">
+                            <h4 class="text-muted mb-3">Weekly Diet Schedule</h4>
+
+                            <t t-set="days_order" t-value="['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']"/>
+                            <t t-set="days_label" t-value="{'monday': 'Monday', 'tuesday': 'Tuesday', 'wednesday': 'Wednesday', 'thursday': 'Thursday', 'friday': 'Friday', 'saturday': 'Saturday', 'sunday': 'Sunday'}"/>
+
+                            <t t-foreach="days_order" t-as="day_key">
+                                <t t-set="day_lines" t-value="doc.diet_line_ids.filtered(lambda l: l.diet_day == day_key)"/>
+                                <t t-if="day_lines">
+                                    <h5 class="text-primary mt-3"><t t-esc="days_label.get(day_key, day_key.title())"/></h5>
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Meal</th>
+                                                <th>Food Item</th>
+                                                <th>Quantity (g)</th>
+                                                <th>Calories (kcal)</th>
+                                                <th>Protein (g)</th>
+                                                <th>Carbs (g)</th>
+                                                <th>Fat (g)</th>
+                                                <th>Notes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="day_lines" t-as="line">
+                                                <tr>
+                                                    <td><t t-esc="line.diet_interval_id.name if line.diet_interval_id else '-'"/></td>
+                                                    <td><strong><span t-field="line.food_item_id"/></strong></td>
+                                                    <td><t t-esc="'%.0f' % line.quantity"/></td>
+                                                    <td><t t-esc="'%.1f' % line.calories"/></td>
+                                                    <td><t t-esc="'%.1f' % (line.food_item_id.protein * line.quantity / 100) if line.food_item_id else '-'"/></td>
+                                                    <td><t t-esc="'%.1f' % (line.food_item_id.carbs * line.quantity / 100) if line.food_item_id else '-'"/></td>
+                                                    <td><t t-esc="'%.1f' % (line.food_item_id.fat * line.quantity / 100) if line.food_item_id else '-'"/></td>
+                                                    <td><t t-esc="line.notes or '-'"/></td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="font-weight-bold">
+                                                <td colspan="2"><strong>Day Total</strong></td>
+                                                <td></td>
+                                                <td><strong><t t-esc="'%.1f' % sum(day_lines.mapped('calories'))"/></strong></td>
+                                                <td colspan="4"></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </t>
+                            </t>
+
+                            <!-- Weekly Summary -->
+                            <div class="mt-4 p-3" style="background-color: #f8f9fa; border-radius: 5px;">
+                                <h5 class="text-primary">Weekly Summary</h5>
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Day</th>
+                                            <th>Total Calories</th>
+                                            <th>Items</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="days_order" t-as="day_key">
+                                            <t t-set="day_lines" t-value="doc.diet_line_ids.filtered(lambda l: l.diet_day == day_key)"/>
+                                            <t t-if="day_lines">
+                                                <tr>
+                                                    <td><t t-esc="days_label.get(day_key, day_key.title())"/></td>
+                                                    <td><t t-esc="'%.1f' % sum(day_lines.mapped('calories'))"/> kcal</td>
+                                                    <td><t t-esc="len(day_lines)"/></td>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="font-weight-bold">
+                                            <td><strong>Average Daily</strong></td>
+                                            <td><strong><t t-esc="'%.1f' % doc.total_calories"/> kcal</strong></td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <p class="text-muted">No diet items added to this plan.</p>
+                        </t>
+
+                        <!-- Notes -->
+                        <t t-if="doc.notes">
+                            <div class="mt-4">
+                                <h4 class="text-muted">Notes &amp; Recommendations</h4>
+                                <p><t t-esc="doc.notes"/></p>
+                            </div>
+                        </t>
+
+                        <!-- Footer -->
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <p>Nutritionist Signature: ________________________</p>
+                                <t t-if="doc.trainer_id">
+                                    <p><t t-esc="doc.trainer_id.name"/></p>
+                                </t>
+                            </div>
+                            <div class="col-6 text-right">
+                                <p>Member Signature: ________________________</p>
+                                <p><span t-field="doc.member_id"/></p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

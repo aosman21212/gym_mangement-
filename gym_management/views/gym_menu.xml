@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Main Menu -->
+    <menuitem
+        id="menu_gym_root"
+        name="Gym Management"
+        sequence="50"
+        web_icon="gym_management,static/description/icon.png"
+    />
+
+    <!-- Dashboard Menu -->
+    <menuitem
+        id="menu_gym_dashboard"
+        name="Dashboard"
+        parent="menu_gym_root"
+        action="action_gym_dashboard"
+        sequence="1"
+    />
+
+    <!-- Members Menu -->
+    <menuitem
+        id="menu_gym_members"
+        name="Members"
+        parent="menu_gym_root"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_gym_member_list"
+        name="Members"
+        parent="menu_gym_members"
+        action="action_gym_member"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_gym_bmi_bmr"
+        name="BMI &amp; BMR Records"
+        parent="menu_gym_members"
+        action="action_gym_bmi_bmr"
+        sequence="20"
+    />
+
+    <!-- Memberships Menu -->
+    <menuitem
+        id="menu_gym_memberships"
+        name="Memberships"
+        parent="menu_gym_root"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_gym_membership_list"
+        name="Memberships"
+        parent="menu_gym_memberships"
+        action="action_gym_membership"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_gym_membership_type_list"
+        name="Membership Types"
+        parent="menu_gym_memberships"
+        action="action_gym_membership_type"
+        sequence="20"
+    />
+
+    <!-- Trainers Menu -->
+    <menuitem
+        id="menu_gym_trainers"
+        name="Trainers"
+        parent="menu_gym_root"
+        action="action_gym_trainer"
+        sequence="30"
+    />
+
+    <!-- Exercises Menu -->
+    <menuitem
+        id="menu_gym_exercises_parent"
+        name="Exercises"
+        parent="menu_gym_root"
+        sequence="40"
+    />
+    <menuitem
+        id="menu_gym_exercise_list"
+        name="Exercises"
+        parent="menu_gym_exercises_parent"
+        action="action_gym_exercise"
+        sequence="10"
+    />
+
+    <!-- Workout Plans Menu -->
+    <menuitem
+        id="menu_gym_workout_plans"
+        name="Workout Plans"
+        parent="menu_gym_root"
+        action="action_gym_workout_plan"
+        sequence="50"
+    />
+
+    <!-- Diet Plans Menu -->
+    <menuitem
+        id="menu_gym_diet_plans"
+        name="Diet Plans"
+        parent="menu_gym_root"
+        action="action_gym_diet_plan"
+        sequence="60"
+    />
+
+    <!-- Reports Menu - opens list views; users select records then use Print button -->
+    <menuitem
+        id="menu_gym_reports"
+        name="Reports"
+        parent="menu_gym_root"
+        sequence="70"
+    />
+    <menuitem
+        id="menu_gym_member_report"
+        name="Member Reports"
+        parent="menu_gym_reports"
+        action="action_gym_member"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_gym_workout_report"
+        name="Workout Plan Reports"
+        parent="menu_gym_reports"
+        action="action_gym_workout_plan"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_gym_diet_report"
+        name="Diet Schedule Reports"
+        parent="menu_gym_reports"
+        action="action_gym_diet_plan"
+        sequence="30"
+    />
+
+    <!-- Configuration Menu -->
+    <menuitem
+        id="menu_gym_config"
+        name="Configuration"
+        parent="menu_gym_root"
+        sequence="80"
+        groups="gym_management.group_gym_admin"
+    />
+    <menuitem
+        id="menu_gym_trainer_skills"
+        name="Trainer Skills"
+        parent="menu_gym_config"
+        action="action_gym_trainer_skill"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_gym_body_parts"
+        name="Body Parts"
+        parent="menu_gym_config"
+        action="action_gym_body_part"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_gym_workout_days"
+        name="Workout Days"
+        parent="menu_gym_config"
+        action="action_gym_workout_day"
+        sequence="30"
+    />
+    <menuitem
+        id="menu_gym_workout_categories"
+        name="Workout Categories"
+        parent="menu_gym_config"
+        action="action_gym_workout_category"
+        sequence="40"
+    />
+    <menuitem
+        id="menu_gym_exercise_types"
+        name="Exercise Types"
+        parent="menu_gym_config"
+        action="action_gym_exercise_type"
+        sequence="50"
+    />
+    <menuitem
+        id="menu_gym_diet_intervals"
+        name="Diet Intervals"
+        parent="menu_gym_config"
+        action="action_gym_diet_interval"
+        sequence="60"
+    />
+    <menuitem
+        id="menu_gym_equipment"
+        name="Equipment"
+        parent="menu_gym_config"
+        action="action_gym_equipment"
+        sequence="70"
+    />
+    <menuitem
+        id="menu_gym_food_items"
+        name="Food Items"
+        parent="menu_gym_config"
+        action="action_gym_food_item"
+        sequence="80"
+    />
+
+</odoo>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_gym_workout_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Header -->
+                        <div class="row mb-4">
+                            <div class="col-8">
+                                <h2 class="text-primary">Workout Plan</h2>
+                                <h3><t t-esc="doc.name"/></h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span class="badge badge-pill"
+                                    t-attf-class="badge #{doc.state == 'active' and 'badge-success' or doc.state == 'completed' and 'badge-info' or 'badge-warning'}">
+                                    <t t-esc="doc.state.title()"/>
+                                </span>
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <!-- Plan Details -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Member:</strong></td>
+                                            <td><span t-field="doc.member_id"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Trainer:</strong></td>
+                                            <td><t t-esc="doc.trainer_id.name if doc.trainer_id else '-'"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Category:</strong></td>
+                                            <td><t t-esc="doc.category_id.name if doc.category_id else '-'"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Start Date:</strong></td>
+                                            <td><t t-esc="doc.date_start"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>End Date:</strong></td>
+                                            <td><t t-esc="doc.date_end"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total Calories:</strong></td>
+                                            <td><t t-esc="'%.1f' % doc.total_calories"/> kcal</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Exercises by Day -->
+                        <t t-if="doc.workout_line_ids">
+                            <h4 class="text-muted mb-3">Exercise Schedule</h4>
+
+                            <!-- Get unique days -->
+                            <t t-set="days" t-value="doc.workout_line_ids.mapped('workout_day_ids')"/>
+
+                            <t t-if="days">
+                                <t t-foreach="days" t-as="day">
+                                    <h5 class="text-primary mt-3"><t t-esc="day.name"/></h5>
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Exercise</th>
+                                                <th>Type</th>
+                                                <th>Sets</th>
+                                                <th>Reps</th>
+                                                <th>Duration (min)</th>
+                                                <th>Calories</th>
+                                                <th>Notes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="counter" t-value="1"/>
+                                            <t t-foreach="doc.workout_line_ids" t-as="line">
+                                                <t t-if="day in line.workout_day_ids">
+                                                    <tr>
+                                                        <td><t t-esc="counter"/></td>
+                                                        <td><strong><span t-field="line.exercise_id"/></strong></td>
+                                                        <td><t t-esc="line.exercise_id.exercise_type_id.name if line.exercise_id.exercise_type_id else '-'"/></td>
+                                                        <td><t t-esc="line.sets"/></td>
+                                                        <td><t t-esc="line.reps"/></td>
+                                                        <td><t t-esc="'%.1f' % line.duration"/></td>
+                                                        <td><t t-esc="'%.1f' % line.calories"/></td>
+                                                        <td><t t-esc="line.notes or '-'"/></td>
+                                                    </tr>
+                                                    <t t-set="counter" t-value="counter + 1"/>
+                                                </t>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <!-- No days assigned, show all exercises -->
+                                <table class="table table-sm table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Exercise</th>
+                                            <th>Type</th>
+                                            <th>Sets</th>
+                                            <th>Reps</th>
+                                            <th>Duration (min)</th>
+                                            <th>Calories</th>
+                                            <th>Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="doc.workout_line_ids" t-as="line">
+                                            <tr>
+                                                <td><t t-esc="line_index + 1"/></td>
+                                                <td><strong><span t-field="line.exercise_id"/></strong></td>
+                                                <td><t t-esc="line.exercise_id.exercise_type_id.name if line.exercise_id.exercise_type_id else '-'"/></td>
+                                                <td><t t-esc="line.sets"/></td>
+                                                <td><t t-esc="line.reps"/></td>
+                                                <td><t t-esc="'%.1f' % line.duration"/></td>
+                                                <td><t t-esc="'%.1f' % line.calories"/></td>
+                                                <td><t t-esc="line.notes or '-'"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="6" class="text-right"><strong>Total Calories:</strong></td>
+                                            <td><strong><t t-esc="'%.1f' % doc.total_calories"/></strong></td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <p class="text-muted">No exercises added to this plan.</p>
+                        </t>
+
+                        <!-- Notes -->
+                        <t t-if="doc.notes">
+                            <div class="mt-4">
+                                <h4 class="text-muted">Notes</h4>
+                                <p><t t-esc="doc.notes"/></p>
+                            </div>
+                        </t>
+
+                        <!-- Footer -->
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <p>Trainer Signature: ________________________</p>
+                                <t t-if="doc.trainer_id">
+                                    <p><t t-esc="doc.trainer_id.name"/></p>
+                                </t>
+                            </div>
+                            <div class="col-6 text-right">
+                                <p>Member Signature: ________________________</p>
+                                <p><span t-field="doc.member_id"/></p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

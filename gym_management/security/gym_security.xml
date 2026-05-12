@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Security Category -->
+    <record id="module_gym_management_category" model="ir.module.category">
+        <field name="name">Gym Management</field>
+        <field name="description">Manage access to Gym Management features.</field>
+        <field name="sequence">50</field>
+    </record>
+
+    <!-- Groups -->
+    <record id="group_gym_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_gym_trainer" model="res.groups">
+        <field name="name">Trainer</field>
+        <field name="implied_ids" eval="[(4, ref('group_gym_user'))]"/>
+    </record>
+
+    <record id="group_gym_admin" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="implied_ids" eval="[(4, ref('group_gym_trainer'))]"/>
+    </record>
+
+
+    <!-- Record Rules -->
+
+    <!-- Trainers can only see members assigned to them -->
+    <record id="rule_gym_member_trainer" model="ir.rule">
+        <field name="name">Gym Member: Trainer sees own members</field>
+        <field name="model_id" ref="gym_management.model_gym_member"/>
+        <field name="groups" eval="[(4, ref('gym_management.group_gym_trainer'))]"/>
+        <field name="domain_force">[
+            '|',
+            ('trainer_id.partner_id.user_ids', 'in', [user.id]),
+            ('trainer_id', '=', False)
+        ]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Admin can see all members -->
+    <record id="rule_gym_member_admin" model="ir.rule">
+        <field name="name">Gym Member: Admin sees all</field>
+        <field name="model_id" ref="gym_management.model_gym_member"/>
+        <field name="groups" eval="[(4, ref('gym_management.group_gym_admin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Trainers see their own workout plans -->
+    <record id="rule_gym_workout_plan_trainer" model="ir.rule">
+        <field name="name">Gym Workout Plan: Trainer sees own plans</field>
+        <field name="model_id" ref="gym_management.model_gym_workout_plan"/>
+        <field name="groups" eval="[(4, ref('gym_management.group_gym_trainer'))]"/>
+        <field name="domain_force">[
+            '|',
+            ('trainer_id.partner_id.user_ids', 'in', [user.id]),
+            ('trainer_id', '=', False)
+        ]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Admin can see all workout plans -->
+    <record id="rule_gym_workout_plan_admin" model="ir.rule">
+        <field name="name">Gym Workout Plan: Admin sees all</field>
+        <field name="model_id" ref="gym_management.model_gym_workout_plan"/>
+        <field name="groups" eval="[(4, ref('gym_management.group_gym_admin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Trainers see their own diet plans -->
+    <record id="rule_gym_diet_plan_trainer" model="ir.rule">
+        <field name="name">Gym Diet Plan: Trainer sees own plans</field>
+        <field name="model_id" ref="gym_management.model_gym_diet_plan"/>
+        <field name="groups" eval="[(4, ref('gym_management.group_gym_trainer'))]"/>
+        <field name="domain_force">[
+            '|',
+            ('trainer_id.partner_id.user_ids', 'in', [user.id]),
+            ('trainer_id', '=', False)
+        ]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Admin can see all diet plans -->
+    <record id="rule_gym_diet_plan_admin" model="ir.rule">
+        <field name="name">Gym Diet Plan: Admin sees all</field>
+        <field name="model_id" ref="gym_management.model_gym_diet_plan"/>
+        <field name="groups" eval="[(4, ref('gym_management.group_gym_admin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+</odoo>
