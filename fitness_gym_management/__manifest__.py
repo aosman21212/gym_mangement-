@@ -20,6 +20,7 @@ A comprehensive module for managing gym operations including:
     """,
     'author': 'Your Company',
     'website': 'https://www.yourcompany.com',
+    'images': ['static/description/banner.png'],
     'depends': ['base', 'mail', 'account'],
     'assets': {
         'web.assets_backend': [
