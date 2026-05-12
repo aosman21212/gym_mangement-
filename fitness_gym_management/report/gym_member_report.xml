@@ -5,8 +5,8 @@
         <field name="name">Member Card</field>
         <field name="model">gym.member</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">gym_management.report_gym_member_template</field>
-        <field name="report_file">gym_management.report_gym_member_template</field>
+        <field name="report_name">fitness_gym_management.report_gym_member_template</field>
+        <field name="report_file">fitness_gym_management.report_gym_member_template</field>
         <field name="print_report_name">'Member - %s' % (object.name)</field>
         <field name="binding_model_id" ref="model_gym_member"/>
         <field name="binding_type">report</field>

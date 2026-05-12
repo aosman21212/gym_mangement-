@@ -6,7 +6,7 @@
         id="menu_gym_root"
         name="Gym Management"
         sequence="50"
-        web_icon="gym_management,static/description/icon.png"
+        web_icon="fitness_gym_management,static/description/icon.png"
     />
 
     <!-- Dashboard Menu -->
@@ -139,7 +139,7 @@
         name="Configuration"
         parent="menu_gym_root"
         sequence="80"
-        groups="gym_management.group_gym_admin"
+        groups="fitness_gym_management.group_gym_admin"
     />
     <menuitem
         id="menu_gym_trainer_skills"

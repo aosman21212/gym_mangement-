@@ -3,7 +3,7 @@
 
 def post_init_hook(env):
     """Assign Odoo admin users to the Gym Administrator group after installation."""
-    gym_admin_group = env.ref('gym_management.group_gym_admin', raise_if_not_found=False)
+    gym_admin_group = env.ref('fitness_gym_management.group_gym_admin', raise_if_not_found=False)
     if not gym_admin_group:
         return
     admin_users = env['res.users'].search([
