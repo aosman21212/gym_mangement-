@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Gym Management',
+    'name': 'Fitness Gym Management',
     'version': '19.0.1.0.0',
     'category': 'Services',
     'summary': 'Comprehensive Gym & Fitness Center Management',
@@ -23,8 +23,8 @@ A comprehensive module for managing gym operations including:
     'depends': ['base', 'mail', 'account'],
     'assets': {
         'web.assets_backend': [
-            'gym_management/static/src/js/gym_dashboard.js',
-            'gym_management/static/src/xml/gym_dashboard.xml',
+            'fitness_gym_management/static/src/js/gym_dashboard.js',
+            'fitness_gym_management/static/src/xml/gym_dashboard.xml',
         ],
     },
     'data': [

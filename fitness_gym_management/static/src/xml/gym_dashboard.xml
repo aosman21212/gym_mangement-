@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-    <t t-name="gym_management.GymDashboard">
+    <t t-name="fitness_gym_management.GymDashboard">
         <div class="o_gym_dashboard o_action p-4 overflow-auto">
 
             <!-- Header -->

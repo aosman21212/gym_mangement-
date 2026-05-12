@@ -32,7 +32,7 @@
     <!-- Email Template: Membership Renewal Reminder -->
     <record id="email_template_membership_renewal" model="mail.template">
         <field name="name">Gym Membership: Renewal Reminder</field>
-        <field name="model_id" ref="gym_management.model_gym_membership"/>
+        <field name="model_id" ref="fitness_gym_management.model_gym_membership"/>
         <field name="subject">Your Gym Membership is Expiring Soon - {{ object.ref }}</field>
         <field name="email_to">{{ object.member_id.email }}</field>
         <field name="email_from">{{ (object.company_id.email or user.email) }}</field>

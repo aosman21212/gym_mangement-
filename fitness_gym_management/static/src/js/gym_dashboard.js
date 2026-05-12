@@ -5,7 +5,7 @@ import { useService } from "@web/core/utils/hooks";
 import { Component, useState, onWillStart } from "@odoo/owl";
 
 class GymDashboard extends Component {
-    static template = "gym_management.GymDashboard";
+    static template = "fitness_gym_management.GymDashboard";
 
     setup() {
         this.orm = useService("orm");
@@ -69,7 +69,7 @@ class GymDashboard extends Component {
     }
 
     openTrainers() {
-        this.action.doAction("gym_management.action_gym_trainer");
+        this.action.doAction("fitness_gym_management.action_gym_trainer");
     }
 
     openMemberships(state) {
@@ -84,11 +84,11 @@ class GymDashboard extends Component {
     }
 
     openWorkoutPlans() {
-        this.action.doAction("gym_management.action_gym_workout_plan");
+        this.action.doAction("fitness_gym_management.action_gym_workout_plan");
     }
 
     openDietPlans() {
-        this.action.doAction("gym_management.action_gym_diet_plan");
+        this.action.doAction("fitness_gym_management.action_gym_diet_plan");
     }
 }
 

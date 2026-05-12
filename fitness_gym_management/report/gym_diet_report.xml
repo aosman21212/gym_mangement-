@@ -5,8 +5,8 @@
         <field name="name">Diet Schedule</field>
         <field name="model">gym.diet.plan</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">gym_management.report_gym_diet_template</field>
-        <field name="report_file">gym_management.report_gym_diet_template</field>
+        <field name="report_name">fitness_gym_management.report_gym_diet_template</field>
+        <field name="report_file">fitness_gym_management.report_gym_diet_template</field>
         <field name="print_report_name">'Diet Plan - %s' % (object.name)</field>
         <field name="binding_model_id" ref="model_gym_diet_plan"/>
         <field name="binding_type">report</field>
